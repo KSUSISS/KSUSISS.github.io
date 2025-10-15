@@ -3,11 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ME</title>
+    <title>Дмитрий Комиссаров</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #3498db;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            border: 4px solid white;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        
+        .info-item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .interest {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1 1 200px;
+        }
+        
+        .interest h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .contact {
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Простая анимация появления */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+    </style>
 </head>
 <body>
-    <h1>Кто я?</h1>
-    <p>Студент третьего курса института, был в армии, 24 года</p>
-    <p>Изучаю стили монтажа, разнообразные эфекты для монтажа и съёмки видео.</p>
+    <div class="container">
+        <header>
+            <div class="profile fade-in">ДК</div>
+            <h1 class="fade-in delay-1">Дмитрий Комиссаров</h1>
+            <p class="tagline fade-in delay-2">Студент и видеомонтажер</p>
+        </header>
+        
+        <section class="fade-in delay-1">
+            <h2>Обо мне</h2>
+            <div class="info-item">
+                <p><strong>Образование:</strong> Студент 3 курса кафедры "Программная инженерия"</p>
+            </div>
+            <div class="info-item">
+                <p><strong>Возраст:</strong> 24 года</p>
+            </div>
+            <div class="info-item">
+                <p><strong>Дополнительно:</strong> Среднее профессиональное образование, военный билет</p>
+            </div>
+        </section>
+        
+        <section class="fade-in delay-2">
+            <h2>Мои интересы</h2>
+            <div class="interests">
+                <div class="interest">
+                    <h3>Видеомонтаж</h3>
+                    <p>В свободное время занимаюсь монтажом видео. Создаю качественный контент с интересными сюжетами.</p>
+                </div>
+                <div class="interest">
+                    <h3>Написание сценариев</h3>
+                    <p>Разрабатываю сюжеты и сценарии для видеороликов, стиль мой конечно мрачноват, но как говорят люди в нём что то есть.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact fade-in delay-3">
+            <h2>Свяжитесь со мной</h2>
+            <p>Если вас заинтересовало мое портфолио, напишите мне!</p>
+            <a href="https://t.me/g_l_o_c_k" class="btn">Написать на Telegram</a>
+        </section>
+        
+        <footer>
+            <p>Дмитрий Комиссаров &copy; 2023</p>
+        </footer>
+    </div>
 </body>
 </html>
