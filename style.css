@@ -1,1 +1,161 @@
+/* ---- БАЗОВЫЕ СТИЛИ И ФОН СО ЗВЕЗДАМИ ---- */
 
+body {
+    margin: 0;
+            /* Указываем Impact и добавляем запасные варианты, если он не установлен */
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: #000; /* Черный фон по умолчанию */
+            color: white;
+
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #000; /* Черный фон по умолчанию */
+}
+
+.nickname {
+    position: absolute;
+    /* Размещаем по центру над контейнером */
+    left: 50%;
+    top: 0;
+    /* Сдвигаем вверх на всю свою высоту + небольшой отступ */
+    transform: translate(-50%, -120%);
+    
+    font-family: Impact, sans-serif; /* Применяем нужный шрифт */
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Адаптивный размер шрифта */
+    text-transform: uppercase; /* Все буквы заглавные */
+    color: #ffffff;
+    /* Эффект неонового свечения */
+    text-shadow: 
+        0 0 42px #bc13fe,
+        0 0 82px #bc13fe;
+    margin: 0;
+    white-space: nowrap; /* Запрещаем перенос строки */
+    z-index: 10;}
+#stars-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Помещаем на задний план */
+}
+
+/* ---- ОСНОВНОЙ КОНТЕНТ ---- */
+
+.main-content {
+    position: relative; 
+    height: 100vh; 
+    overflow: hidden;
+}
+.info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 6500px;
+    width: 70vw;
+}
+.info-block
+{
+    background: rgba(18,18,38,0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 15px,solid rgba(255,255,255,0.3);
+    border-radius: 15px;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+    padding: 50px 50px;
+    transition: border-color 0.4s ease, filter 0.4s ease;
+}
+.info-block:hover {
+    /* Эффект при наведении, как у фото */
+    border-color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+}
+.info-block h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.info-block p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+.info-block a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #e1a9ff; /* Фиолетовый оттенок в тон нику */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.info-block a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+/* ----  СТИЛИ ДЛЯ ФОТО ---- */
+
+/* 1. Блок-обертка: отвечает за ПОЛОЖЕНИЕ и АНИМАЦИЮ */
+.photo-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    max-width: 35vw;
+    animation: floatAnimation 5s infinite ease-in-out;
+}
+
+/* 2. Сама фотография: отвечает за ВНЕШНИЙ ВИД */
+.profile-photo {
+    width: 100%; 
+    height: auto;
+    display: block;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+    transition: border-color 0.4s ease;
+    overflow: hidden; 
+    position: relative; 
+}
+
+/* 3. Эффект блеска (остается привязан к фото) */
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        115deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.8) 50%, 
+        transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* 4. Активация эффекта при наведении на БЛОК-ОБЕРТКУ */
+.photo-wrapper:hover .profile-photo {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.photo-wrapper:hover .profile-photo::before {
+    transform: translateX(100%);
+}
+
+/* 5. Анимация парения (теперь она двигает весь блок) */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(-52%);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
