@@ -4,6 +4,7 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: #000;
     color: white;
+    min-width: 1400px; /* Добавлено, чтобы предотвратить сжатие на маленьких экранах */
 }
 
 #stars-canvas {
@@ -15,13 +16,17 @@ body {
     z-index: -1;
 }
 
-/* ---- ОСНОВНОЙ КОНТЕНТ (ВАШИ ОРИГИНАЛЬНЫЕ СТИЛИ) ---- */
+/* ---- ОСНОВНОЙ КОНТЕНТ ---- */
+
+/* ИЗМЕНЕНО: Задаем фиксированную ширину и центрируем блок */
 .main-content {
     position: relative;
+    width: 1400px; /* Фиксированная ширина макета */
+    margin: 0 auto;  /* Центрирование по горизонтали */
     height: 100vh;
-    display: flex; /* Добавим flex для легкого выравнивания */
-    align-items: center; /* Выравниваем по вертикальному центру */
-    padding-left: 10%; /* Отступ слева для текстового блока */
+    display: flex; 
+    align-items: center; 
+    padding: 0 50px; /* Отступы по бокам внутри контейнера */
     box-sizing: border-box;
 }
 
@@ -29,8 +34,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    max-width: 600px; /* Ограничим ширину для читаемости */
-    width: 45vw;
+    max-width: 600px; 
+    width: 45%; /* Ширина относительно родителя (main-content) */
 }
 
 .info-block {
@@ -40,7 +45,7 @@ body {
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
-        padding: 50px 40px;
+    padding: 25px 30px;
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -51,7 +56,7 @@ body {
 
 .info-block h3 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 1.8rem;
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -77,14 +82,15 @@ body {
     transform: translateX(5px);
 }
 
-/* ---- СТИЛИ ДЛЯ ФОТО (ВАШИ ОРИГИНАЛЬНЫЕ СТИЛИ) ---- */
+/* ---- СТИЛИ ДЛЯ ФОТО ---- */
 .photo-wrapper {
     position: absolute;
     top: 50%;
-    right: 10%;
+    /* ИЗМЕНЕНО: Позиционирование в пикселях для стабильности */
+    right: 100px; 
     transform: translateY(-50%);
-    width: 30vw; 
-    max-width: 450px; 
+    width: 450px; /* Фиксированная ширина фото-блока */
+    max-width: 450px;
     animation: floatAnimation 5s infinite ease-in-out;
 }
 
@@ -97,7 +103,6 @@ body {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
-*/
 
 .photo-wrapper:hover .profile-photo {
     border-color: rgba(255, 255, 255, 0.9);
@@ -110,7 +115,7 @@ body {
     top: 0;
     transform: translate(-50%, -120%);
     font-family: Impact, sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 4rem; /* Фиксированный размер шрифта */
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 42px #bc13fe, 0 0 82px #bc13fe;
@@ -125,42 +130,6 @@ body {
     100% { transform: translateY(-50%); }
 }
 
-
 /* ========================================================= */
-/* ===== ВОТ ЭТОТ БЛОК РЕШАЕТ ПРОБЛЕМУ НА ТЕЛЕФОНАХ ===== */
+/* ===== БЛОК ДЛЯ АДАПТАЦИИ НА ТЕЛЕФОНАХ БЫЛ УДАЛЕН ===== */
 /* ========================================================= */
-
-@media (max-width: 992px) {
-    /* Эти стили применяются ТОЛЬКО если ширина экрана меньше 992px */
-
-    .main-content {
-        flex-direction: column;  /* Ставим блоки друг под другом */
-        justify-content: center; /* Центрируем по вертикали */
-        height: auto;            /* Высота по содержимому, разрешаем прокрутку */
-        min-height: 100vh;
-        padding: 100px 20px 40px; /* Отступы: сверху (для ника), по бокам, снизу */
-    }
-
-    .photo-wrapper {
-        position: relative; /* Убираем absolute, делаем обычным блоком */
-        right: auto;        /* Сбрасываем позицию */
-        top: auto;
-        transform: none;    /* Сбрасываем сдвиг */
-        animation: none;    /* Отключаем анимацию парения */
-        
-        width: 70%;         /* Фото будет занимать 70% ширины */
-        max-width: 300px;
-        margin: 0 auto;     /* Центрируем блок */
-    }
-
-    .info-container {
-        width: 100%;        /* Блок с текстом занимает всю доступную ширину */
-        margin-top: 80px;   /* Отступ от фото */
-        padding: 0;
-        align-items: center; /* Центрируем текст внутри */
-    }
-
-    .info-block {
-        text-align: center; /* Выравниваем текст в блоках по центру */
-    }
-}
